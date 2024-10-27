@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <input type="text" placeholder="Write your todo here" id="input1">
+    <button onclick="addTodo()">Add</button>
+    <div id="todoDisplay"></div> 
+    <script>
+
+        const todoList = []; // Array For Inputted Todo
+        function addTodo() {
+            const input1 = document.getElementById("input1").value; 
+
+            if (input1) {
+                todoList.push(input1.toUpperCase());
+                displayTodos(); 
+                document.getElementById("input1").value = '';
+            } else {
+                alert("Please enter a todo!"); // Alert if input is empty
+            }
+        }
+
+
+        function displayTodos() { 
+            const todoDisplay = document.getElementById("todoDisplay");
+    
+            todoDisplay.innerHTML = ''; 
+
+            // Display all todos
+            const todosToDisplay = todoList.join('<br>'); // Join todos with line breaks
+            todoDisplay.innerHTML = todosToDisplay; 
+}
+    </script>
+</body>
+</html>
